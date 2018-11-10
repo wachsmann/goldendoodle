@@ -6,7 +6,7 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import Snack from "@material-ui/core/SnackbarContent";
 import IconButton from "@material-ui/core/IconButton";
 // @material-ui/icons
-import {Close,InfoOutline,Warning,Check} from "@material-ui/icons";
+import {Close,InfoOutlined,Warning,Check} from "@material-ui/icons";
 
 import snackbarContentStyle from "../../assets/jss/material-kit-react/components/snackbarContentStyle.jsx";
 import {alertActions } from '../../_actions';
@@ -23,7 +23,7 @@ class SnackbarContent extends React.Component {
     this.props.dispatch(alertActions.clear());
   }
   render() {
-    const { classes, message, close,type,closeStatus } = this.props;
+    const { classes, message, close,type } = this.props;
     var action = [];
     if (close !== undefined) {
       action = [
@@ -47,7 +47,7 @@ class SnackbarContent extends React.Component {
         break;
       case "ERROR":
         color = "danger";
-        icon = <InfoOutline className={classes.icon} />;
+        icon = <InfoOutlined className={classes.icon} />;
         break;
       case "WARNING":
         color = "warning";

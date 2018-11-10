@@ -34,6 +34,10 @@ export default class MainNavbar extends React.Component {
     },
     userButton:{
       marginRight: 10,
+    },
+    userName:{
+      color:'white',
+      marginRight:15
     }
   };
     const {user,open} = this.state;
@@ -66,7 +70,9 @@ export default class MainNavbar extends React.Component {
                 Estoque LMD
               </Typography>
               
-              
+                <Typography style={styles.userName} variant="h7" component="h7">
+                  Olá, {user && user.name}
+                </Typography>
                <Link  to="/conta"  ><Button  style={styles.userButton} variant="contained" color="primary">Conta</Button></Link>
 
               <Link  to="/login"  ><Button  variant="contained" color="primary">Sair</Button></Link>

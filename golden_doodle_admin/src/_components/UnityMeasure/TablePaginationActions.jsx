@@ -19,8 +19,6 @@ import FilterListIcon from '@material-ui/icons/FilterList';
 import { lighten } from '@material-ui/core/styles/colorManipulator';
 import { connect } from 'react-redux';
 
-let counter = 0;
-
 
 function getSorting(order, orderBy) {
   return order === 'desc'

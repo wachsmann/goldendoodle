@@ -2,7 +2,7 @@
 
 import React from 'react';
 import {ListItem,ListItemIcon,ListItemText} from '@material-ui/core';
-import {Home,CompareArrows,Dashboard,Dns,List,Accessibility,FormatListNumbered,People,Folder,Kitchen} from '@material-ui/icons';
+import {Home,FormatListNumbered,People,Folder,Kitchen} from '@material-ui/icons';
 import { Link } from 'react-router-dom';
 
 export const MenuItems = (

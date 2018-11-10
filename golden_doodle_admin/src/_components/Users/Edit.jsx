@@ -1,19 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import RegisterView  from './RegisterView';
 import { stocksActions } from '../../_actions';
 
 class Edit extends React.Component {
-  constructor(props) {
-  
-    super(props);
-    //Get stocks
-    //this.props.dispatch(categoriesActions.getAll());
-    
-    
-    
-  }
+
   onSend(obj){
     //console.log(obj);
     this.props.dispatch(stocksActions.update(obj));

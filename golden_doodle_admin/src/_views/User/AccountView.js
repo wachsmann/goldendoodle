@@ -1,21 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
-import { userActions } from '../../_actions';
-import {Button,Modal,Dialog,DialogTitle,DialogContent,DialogContentText,DialogActions} from '@material-ui/core';
-
 import {EditAccount} from '../../_components/Users';
 
 class AccountView extends React.Component {
-    constructor(props) {
-        super(props);
-        
-        this.state = {
-           
-        };
-    
-    }
-
     
     handleCloseRegister = () => {
         this.setState({ openRegister: false });

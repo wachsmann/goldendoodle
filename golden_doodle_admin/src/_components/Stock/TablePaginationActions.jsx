@@ -14,12 +14,12 @@ import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import IconButton from '@material-ui/core/IconButton';
 import Tooltip from '@material-ui/core/Tooltip';
-import {Delete,Edit} from '@material-ui/icons';
+import {Edit} from '@material-ui/icons';
 import FilterListIcon from '@material-ui/icons/FilterList';
 import { lighten } from '@material-ui/core/styles/colorManipulator';
 import { connect } from 'react-redux';
 
-let counter = 0;
+
 
 
 function getSorting(order, orderBy) {

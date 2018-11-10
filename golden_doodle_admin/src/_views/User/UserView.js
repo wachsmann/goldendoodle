@@ -2,8 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { userActions } from '../../_actions';
-import { userList } from '../../_components';
-import {Button,Modal,Dialog,DialogTitle,DialogContent,DialogContentText,DialogActions} from '@material-ui/core';
+import {Button,Modal,Dialog,DialogTitle,DialogActions} from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 import TablePaginationActions  from '../../_components/Users/TablePaginationActions';
 import {Register,Edit}  from '../../_components/Users';
@@ -33,7 +32,6 @@ class UserView extends React.Component {
     }
     
     handleDelete = (e,id,tableData)=>{
-        console.log("HOMEVIEW",tableData,e,id);
         this.setState({"openDelete":true,itemId:id});
     }
     handleEdit = (event,id,tableData) =>{
@@ -43,7 +41,7 @@ class UserView extends React.Component {
 
     }
     handleRowsPerPage = (rowsPerPageChild) =>{
-        this.state.rowsPerPage = rowsPerPageChild;
+        this.setState({rowsPerPage: rowsPerPageChild});
         this.props.dispatch(userActions.getAll(this.state));
     }
     HandleChangePage = (changePage) =>{
@@ -62,8 +60,6 @@ class UserView extends React.Component {
     }    
     handleConfirmDelete = () =>{
         this.setState({"openDelete":false});
-        console.log("Delete",this.state.itemId);
-        //this.props.dispatch(itemsActions.delete(this.state.itemId));
         
     }
 

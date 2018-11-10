@@ -2,12 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { itemsActions } from '../../_actions';
-import { ItemsList } from '../../_components';
-import {Button,Modal,Dialog,DialogTitle,DialogContent,DialogContentText,DialogActions} from '@material-ui/core';
+import {Button,Modal,Dialog,DialogTitle,DialogActions} from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 import TablePaginationActions  from '../../_components/Items/TablePaginationActions';
 import {Register,Edit}  from '../../_components/Items';
-  var counter = 0;
 class HomeView extends React.Component {
     constructor(props) {
         super(props);
@@ -41,7 +39,8 @@ class HomeView extends React.Component {
     }
     handleRowsPerPage = (rowsPerPageChild) =>{
        
-        this.state.rowsPerPage = rowsPerPageChild;
+        //this.state.rowsPerPage = rowsPerPageChild;
+        this.setState({rowsPerPage: rowsPerPageChild});
         this.props.dispatch(itemsActions.getAll(this.state));
     }
     handleChangePage = (changePage) =>{

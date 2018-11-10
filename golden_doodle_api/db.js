@@ -1,8 +1,8 @@
 var mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
-mongoose.connect('mongodb://root:password@localhost:27017/lmd?authSource=admin');
 
+mongoose.connect('mongodb://root:password@localhost:27017/lmd?authSource=admin',{ useNewUrlParser: true });
 //Get the default connection
 var _mongoose = mongoose.connection;
 //Bind connection to error event (to get notification of connection errors)

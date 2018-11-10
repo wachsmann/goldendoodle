@@ -1,6 +1,5 @@
 import { categoriesConstants } from '../_constants';
 import { categoriesService } from '../_services';
-import { history } from '../_helpers';
 import { alertActions } from './';
 
 export const categoriesActions = {

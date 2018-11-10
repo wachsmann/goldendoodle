@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { stocksActions } from '../../_actions';
-import {Button,Modal,Dialog,DialogTitle,DialogContent,DialogContentText,DialogActions} from '@material-ui/core';
+import {Button,Modal,Dialog,DialogTitle,DialogActions} from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 import TablePaginationActions  from '../../_components/Stock/TablePaginationActions';
 import {Register,Edit}  from '../../_components/Stock';
@@ -42,7 +42,8 @@ class StockView extends React.Component {
 
     }
     handleRowsPerPage = (rowsPerPageChild) =>{
-        this.state.rowsPerPage = rowsPerPageChild;
+        //this.state.rowsPerPage = rowsPerPageChild;
+        this.setState({rowsPerPage: rowsPerPageChild});
         this.props.dispatch(stocksActions.getAll(this.state));
         //this.props.dispatch(itemsActions.getAll(this.state));
     }

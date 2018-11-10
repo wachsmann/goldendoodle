@@ -1,6 +1,5 @@
 import { stocksConstants } from '../_constants';
 import { stocksService } from '../_services';
-import { history } from '../_helpers';
 import { alertActions } from './';
 
 export const stocksActions = {

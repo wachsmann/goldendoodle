@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 
 import { userActions } from '../../_actions';
 import './index.css';
-import SnackbarContent from '../../_components/Snackbar/SnackbarContent';
 import {AlertBar} from '../../_components/AlertBar';
 
 class LoginView extends React.Component {
@@ -53,7 +52,6 @@ class LoginView extends React.Component {
 
   render() {
 
-    const { alert } = this.props;
     const { username, password } = this.state;
     return (
 
@@ -110,10 +108,8 @@ class LoginView extends React.Component {
 
 function mapStateToProps(state) {
     const { loggingIn } = state.authentication;
-    const { alert } = state;
     return {
         loggingIn,
-        alert
     };
 }
 

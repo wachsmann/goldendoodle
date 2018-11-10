@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import {MenuItem,TextField,Typography,Grid,Button} from '@material-ui/core';
-import NumberFormat from 'react-number-format';
+import {TextField,Typography,Grid,Button} from '@material-ui/core';
 import Icon from '@material-ui/core/Icon';
 
 class RegisterView extends React.Component {

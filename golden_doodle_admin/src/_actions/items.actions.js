@@ -1,6 +1,5 @@
 import { itemsConstants } from '../_constants';
 import { itemsService } from '../_services';
-import { history } from '../_helpers';
 import { alertActions } from './';
 
 export const itemsActions = {

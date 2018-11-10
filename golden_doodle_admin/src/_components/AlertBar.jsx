@@ -4,10 +4,6 @@ import SnackbarContent from './Snackbar/SnackbarContent';
 
 class AlertBar extends React.Component {
 
-  constructor(props) {
-    super(props);  
-  }
-
   render() {
     const { alert } = this.props;
 

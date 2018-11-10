@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import EditView  from './EditView';
 import { userActions,stocksActions } from '../../_actions';
@@ -15,7 +14,6 @@ class EditAccount extends React.Component {
     
   }
   onSend(obj){
-  console.log("ONSEND",obj);
   this.props.dispatch(userActions.update(
     {
         _id:obj._id,

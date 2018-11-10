@@ -2,8 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { unitiesActions } from '../../_actions';
-import { userList } from '../../_components';
-import {Button,Modal,Dialog,DialogTitle,DialogContent,DialogContentText,DialogActions} from '@material-ui/core';
+import {Button,Modal,Dialog,DialogTitle,DialogActions} from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 import TablePaginationActions  from '../../_components/UnityMeasure/TablePaginationActions';
 import {Register,Edit}  from '../../_components/UnityMeasure';
@@ -43,7 +42,7 @@ class UMeasureView extends React.Component {
 
     }
     handleRowsPerPage = (rowsPerPageChild) =>{
-        this.state.rowsPerPage = rowsPerPageChild;
+         this.setState({rowsPerPage: rowsPerPageChild});
         this.props.dispatch(unitiesActions.getAll(this.state));
     }
     HandleChangePage = (changePage) =>{
