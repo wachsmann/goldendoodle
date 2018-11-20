@@ -1,14 +1,23 @@
-import { authHeader } from '../_helpers';
+import { authHeader,urlAppender} from '../_helpers';
 
 export const unitiesService = {
   
     register,
     getAll,
+    getList,
     getById,
     update,
     delete: _delete
 };
+function getList() {
+    const requestOptions = {
+        method: 'GET',
+        headers: authHeader(),
+     
+    };
 
+    return fetch(urlAppender('/unities/'), requestOptions).then(handleResponse);
+}
 
 function getAll(req) {
     const requestOptions = {
@@ -17,7 +26,7 @@ function getAll(req) {
         body: JSON.stringify(req)
     };
 
-    return fetch('http://localhost:8081/app/unities/all', requestOptions).then(handleResponse);
+    return fetch(urlAppender('/unities/all'), requestOptions).then(handleResponse);
 }
 
 function getById(id) {
@@ -26,7 +35,7 @@ function getById(id) {
         headers: authHeader()
     };
 
-    return fetch('http://localhost:8081/app/unities/' + id, requestOptions).then(handleResponse);
+    return fetch(urlAppender('/unities/' + id), requestOptions).then(handleResponse);
 }
 
 function register(unity) {
@@ -36,7 +45,7 @@ function register(unity) {
         body: JSON.stringify(unity)
     };
 
-    return fetch('http://localhost:8081/app/unities', requestOptions).then(handleResponse);
+    return fetch(urlAppender('/unities'), requestOptions).then(handleResponse);
 }
 
 function update(unity) {
@@ -46,7 +55,7 @@ function update(unity) {
         body: JSON.stringify(unity)
     };
 
-    return fetch('http://localhost:8081/app/unities/' + unity._id, requestOptions).then(handleResponse);
+    return fetch(urlAppender('/unities/' + unity._id), requestOptions).then(handleResponse);
 }
 
 // prefixed function name with underscore because delete is a reserved word in javascript
@@ -56,7 +65,7 @@ function _delete(id) {
         headers: authHeader()
     };
 
-    return fetch('http://localhost:8081/app/unities/' + id, requestOptions).then(handleResponse);
+    return fetch(urlAppender('/unities/' + id), requestOptions).then(handleResponse);
 }
 
 function handleResponse(response) {

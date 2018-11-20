@@ -1,9 +1,10 @@
-import { authHeader } from '../_helpers';
+import { authHeader,urlAppender } from '../_helpers';
 
 export const stocksService = {
   
     register,
     getAll,
+    getList,
     getById,
     update,
     delete: _delete
@@ -17,8 +18,19 @@ function getAll(req) {
         body: JSON.stringify(req)
     };
 
-    return fetch('http://localhost:8081/app/stocks/all', requestOptions).then(handleResponse);
+    return fetch(urlAppender('/stocks/all'), requestOptions).then(handleResponse);
 }
+
+
+function getList() {
+    const requestOptions = {
+        method: 'GET',
+        headers: authHeader(),
+    };
+
+    return fetch(urlAppender('/stocks/'), requestOptions).then(handleResponse);
+}
+
 
 function getById(id) {
     const requestOptions = {
@@ -26,7 +38,7 @@ function getById(id) {
         headers: authHeader()
     };
 
-    return fetch('http://localhost:8081/app/stocks/' + id, requestOptions).then(handleResponse);
+    return fetch(urlAppender('/stocks/' + id), requestOptions).then(handleResponse);
 }
 
 function register(stock) {
@@ -36,7 +48,7 @@ function register(stock) {
         body: JSON.stringify(stock)
     };
 
-    return fetch('http://localhost:8081/app/stocks', requestOptions).then(handleResponse);
+    return fetch(urlAppender('/stocks'), requestOptions).then(handleResponse);
 }
 
 function update(stock) {
@@ -46,7 +58,7 @@ function update(stock) {
         body: JSON.stringify(stock)
     };
 
-    return fetch('http://localhost:8081/app/stocks/' + stock._id, requestOptions).then(handleResponse);
+    return fetch(urlAppender('/stocks/' + stock._id), requestOptions).then(handleResponse);
 }
 
 // prefixed function name with underscore because delete is a reserved word in javascript
@@ -56,7 +68,7 @@ function _delete(id) {
         headers: authHeader(),
     };
 
-    return fetch('http://localhost:8081/app/stocks/' + id, requestOptions).then(handleResponse);
+    return fetch(urlAppender('/stocks/' + id), requestOptions).then(handleResponse);
 }
 
 function handleResponse(response) {

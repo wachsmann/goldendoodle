@@ -261,6 +261,7 @@ class TablePaginationActions extends React.Component {
         </div>
         <TablePagination
           component="div"
+          labelRowsPerPage="Linhas por página: "
           count={totalRows}
           rowsPerPage={rowsPerPage}
           page={page}

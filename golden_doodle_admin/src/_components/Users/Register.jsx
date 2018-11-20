@@ -8,7 +8,7 @@ class Register extends React.Component {
   
     super(props);
     
-    this.props.dispatch(stocksActions.getAll());
+    this.props.dispatch(stocksActions.getList());
 
   }
   onSend(obj){

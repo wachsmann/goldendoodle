@@ -37,7 +37,7 @@ class RegisterView extends React.Component {
     });
   };
   onSend = () => {
-    console.log("teste"); 
+    
     this.setState({ submitted: true });
     var {name,categories,unities,qtt,_id} = this.state;
     this.props.onSend({_id,name,categories,unities,qtt});

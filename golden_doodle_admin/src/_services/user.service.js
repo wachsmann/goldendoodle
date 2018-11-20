@@ -1,10 +1,11 @@
-import { authHeader } from '../_helpers';
+import { authHeader,urlAppender } from '../_helpers';
 
 export const userService = {
     login,
     logout,
     register,
     getAll,
+    getList,
     getById,
     update,
     delete: _delete
@@ -19,7 +20,7 @@ function login(name, password) {
         body: JSON.stringify({ name, password })
     };
 
-    return fetch('http://localhost:8081/auth/login', requestOptions)
+    return fetch(urlAppender('/auth/login'), requestOptions)
         .then(response => {
             if (!response.ok) { 
                 return Promise.reject(response.statusText);
@@ -51,16 +52,25 @@ function getAll(req) {
         
     };
 
-    return fetch('http://localhost:8081/app/users/all', requestOptions).then(handleResponse);
+    return fetch(urlAppender('/users/all'), requestOptions).then(handleResponse);
 }
 
+function getList() {
+    const requestOptions = {
+        method: 'POST',
+        headers: authHeader(),
+        
+    };
+
+    return fetch(urlAppender('/users/'), requestOptions).then(handleResponse);
+}
 function getById(id) {
     const requestOptions = {
         method: 'GET',
         headers: authHeader()
     };
 
-    return fetch('/users/' + id, requestOptions).then(handleResponse);
+    return fetch(urlAppender('/users/' + id), requestOptions).then(handleResponse);
 }
 
 function register(user) {
@@ -71,7 +81,7 @@ function register(user) {
         body: JSON.stringify(user)
     };
 
-    return fetch('http://localhost:8081/app/users', requestOptions).then(handleResponse);
+    return fetch(urlAppender('/users'), requestOptions).then(handleResponse);
 }
 
 function update(user) {
@@ -81,7 +91,7 @@ function update(user) {
         body: JSON.stringify(user)
     };
     console.log("USER",user);
-    return fetch('http://localhost:8081/app/users/' + user._id, requestOptions).then(handleResponse);
+    return fetch(urlAppender('/users/' + user._id), requestOptions).then(handleResponse);
 }
 
 // prefixed function name with underscore because delete is a reserved word in javascript
@@ -91,7 +101,7 @@ function _delete(id) {
         headers: authHeader()
     };
 
-    return fetch('/users/' + id, requestOptions).then(handleResponse);
+    return fetch(urlAppender('/users/' + id), requestOptions).then(handleResponse);
 }
 
 function handleResponse(response) {

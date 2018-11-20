@@ -6,6 +6,7 @@ export const categoriesActions = {
 
     register,
     getAll,
+    getList,
     update,
     delete: _delete,
     getById
@@ -89,7 +90,21 @@ function update(category) {
     function success() { return { type: categoriesConstants.UPDATE_SUCCESS} }
     function failure(error) { return { type: categoriesConstants.UPDATE_FAILURE, error } }
 }
+function getList() {
+    return dispatch => {
+        dispatch(request());
+       
+        categoriesService.getList()
+            .then(
+                categories => dispatch(success(categories)),
+                error => dispatch(failure(error))
+            );
+    };
 
+    function request() { return { type: categoriesConstants.GETLIST_REQUEST } }
+    function success(categories) { return { type: categoriesConstants.GETLIST_SUCCESS, categories } }
+    function failure(error) { return { type: categoriesConstants.GETLIST_FAILURE, error } }
+}
 
 function getAll(req) {
     return dispatch => {

@@ -5,6 +5,15 @@ Stock = require('../models/Stock');
 
 router.use(bodyParser.urlencoded({ extended: true }));
 router.use(bodyParser.json());
+// GETS A STOCKS FROM THE DATABASE
+router.get('/', function (req, res) {
+ Stock.find(function(err, stock){
+        if (err) return res.status(500).send("There was a problem finding the stock.");
+        if (!stock) return res.status(404).send("No stock found.");
+        res.status(200).send(stock);
+    });
+});
+
 // RETURNS ALL STOCKS IN DATABASE
 router.post('/all', function (req, res) {
   

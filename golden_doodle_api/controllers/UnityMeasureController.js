@@ -6,6 +6,15 @@ Unity = require('../models/UnityMeasure');
 router.use(bodyParser.urlencoded({ extended: true }));
 router.use(bodyParser.json());
 
+// GETS A unity FROM THE DATABASE
+router.get('/', function (req, res) {
+    Unity.find(function (err, unity) {
+        if (err) return res.status(500).send("There was a problem finding the unity.");
+        if (!unity) return res.status(404).send("No unity found.");
+        res.status(200).send(unity);
+    });
+});
+
 // RETURNS ALL unities IN DATABASE
 router.post('/all', function (req, res) {
     var sortingOrder = req.body.order == 'asc' ? 1 : -1; 

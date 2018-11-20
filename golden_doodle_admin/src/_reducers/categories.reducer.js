@@ -55,6 +55,19 @@ export function categories(state = {}, action) {
       return { 
         error: action.error
       };
+    case categoriesConstants.GETLIST_SUCCESS:
+    
+      return {
+        list: action.categories
+      };
+    case categoriesConstants.GETLIST_FAILURE:
+      return { 
+        error: action.error
+      };     
+    case categoriesConstants.GETLIST_REQUEST:
+      return {
+        loading: true
+      };       
       case categoriesConstants.DELETE_REQUEST:
       // add 'deleting:true' property to user being deleted
       return {

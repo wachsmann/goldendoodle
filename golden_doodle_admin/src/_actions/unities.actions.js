@@ -6,6 +6,7 @@ export const unitiesActions = {
 
     register,
     getAll,
+    getList,
     update,
     delete: _delete,
     getById
@@ -91,7 +92,21 @@ function update(unity) {
     function success() { return { type: unitiesConstants.UPDATE_SUCCESS} }
     function failure(error) { return { type: unitiesConstants.UPDATE_FAILURE, error } }
 }
+function getList() {
+    return dispatch => {
+        dispatch(request());
+       
+        unitiesService.getList()
+            .then(
+                unities => dispatch(success(unities)),
+                error => dispatch(failure(error))
+            );
+    };
 
+    function request() { return { type: unitiesConstants.GETLIST_REQUEST } }
+    function success(unities) { return { type: unitiesConstants.GETLIST_SUCCESS, unities } }
+    function failure(error) { return { type: unitiesConstants.GETLIST_FAILURE, error } }
+}
 function getAll(req) {
     return dispatch => {
         dispatch(request());

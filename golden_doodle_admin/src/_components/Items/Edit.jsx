@@ -8,8 +8,8 @@ class Edit extends React.Component {
   
     super(props);
     
-    this.props.dispatch(categoriesActions.getAll());
-    this.props.dispatch(unitiesActions.getAll());
+    this.props.dispatch(categoriesActions.getList());
+    this.props.dispatch(unitiesActions.getList());
     this.props.dispatch(itemsActions.getById(this.props.itemId));
     
   }
@@ -28,8 +28,8 @@ class Edit extends React.Component {
          <RegisterView 
             onSend={this.onSend} 
             props={this.props} 
-            categories={categories.data} 
-            unities={unities.data}
+            categories={categories.list} 
+            unities={unities.list}
             item={items.item} 
             itemName={items.item && items.item.name} 
             title={"Editar Item"}

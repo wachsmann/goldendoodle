@@ -9,7 +9,7 @@ class EditAccount extends React.Component {
   
     super(props);
     
-    this.props.dispatch(stocksActions.getAll());
+    this.props.dispatch(stocksActions.getList());
 
     
   }
@@ -35,7 +35,7 @@ class EditAccount extends React.Component {
           <EditView 
             onSend={this.onSend}
             props={this.props}
-            stocks={stocks.data}
+            stocks={stocks.list}
             title={"Conta"}
 
           />

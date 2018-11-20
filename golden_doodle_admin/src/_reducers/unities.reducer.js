@@ -55,6 +55,19 @@ export function unities(state = {}, action) {
       return { 
         error: action.error
       };
+    case unitiesConstants.GETLIST_SUCCESS:
+    
+      return {
+        list: action.unities
+      };
+    case unitiesConstants.GETLIST_FAILURE:
+      return { 
+        error: action.error
+      };     
+    case unitiesConstants.GETLIST_REQUEST:
+      return {
+        loading: true
+      };        
     case unitiesConstants.DELETE_REQUEST:
       // add 'deleting:true' property to user being deleted
       return {

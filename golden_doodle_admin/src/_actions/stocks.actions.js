@@ -6,6 +6,7 @@ export const stocksActions = {
 
     register,
     getAll,
+    getList,
     update,
     delete: _delete,
     getById
@@ -116,6 +117,23 @@ function getAll(req) {
     function request() { return { type: stocksConstants.GETALL_REQUEST } }
     function success(stocks) { return { type: stocksConstants.GETALL_SUCCESS, stocks } }
     function failure(error) { return { type: stocksConstants.GETALL_FAILURE, error } }
+}
+
+
+function getList() {
+    return dispatch => {
+        dispatch(request());
+        
+        stocksService.getList()
+            .then(
+                stocks => dispatch(success(stocks)),
+                error => dispatch(failure(error))
+            );
+    };
+
+    function request() { return { type: stocksConstants.GETLIST_REQUEST } }
+    function success(stocks) { return { type: stocksConstants.GETLIST_SUCCESS, stocks } }
+    function failure(error) { return { type: stocksConstants.GETLIST_FAILURE, error } }
 }
 
 // prefixed function name with underscore because delete is a reserved word in javascript

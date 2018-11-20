@@ -8,6 +8,7 @@ export const userActions = {
     logout,
     register,
     getAll,
+    getList,
     update
     //delete: _delete
 };
@@ -117,3 +118,18 @@ function getAll(req) {
     function failure(error) { return { type: userConstants.GETALL_FAILURE, error } }
 }
 
+function getList() {
+    return dispatch => {
+        dispatch(request());
+      
+        userService.getAll()
+            .then(
+                users => dispatch(success(users)),
+                error => dispatch(failure(error))
+            );
+    };
+
+    function request() { return { type: userConstants.GETLIST_REQUEST } }
+    function success(users) { return { type: userConstants.GETLIST_SUCCESS, users } }
+    function failure(error) { return { type: userConstants.GETLIST_FAILURE, error } }
+}

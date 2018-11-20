@@ -6,6 +6,27 @@ Category = require('../models/Category'),
 Item = require('../models/Item');
 router.use(bodyParser.urlencoded({ extended: true }));
 router.use(bodyParser.json());
+
+// GETS A CATEGORY FROM THE DATABASE
+router.get('/', function (req, res) {
+ Category.aggregate( [
+
+        {
+            $match:
+            {
+                "stock._id":{$in:req.decoded.stocks}
+            }
+        },
+       
+    
+       
+    ] ).exec(function(err, category){
+        if (err) return res.status(500).send("There was a problem finding the category.");
+        if (!category) return res.status(404).send("No category found.");
+        res.status(200).send(category);
+    });
+});
+
 // RETURNS ALL CATEGORIES IN DATABASE
 router.post('/all', function (req, res) {
     

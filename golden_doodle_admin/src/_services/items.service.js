@@ -1,4 +1,4 @@
-import { authHeader } from '../_helpers';
+import { authHeader,urlAppender } from '../_helpers';
 
 export const itemsService = {
   
@@ -17,7 +17,7 @@ function getAll(req) {
         body: JSON.stringify(req)
     };
 
-    return fetch('http://localhost:8081/app/items/all', requestOptions).then(handleResponse);
+    return fetch(urlAppender('/items/all'), requestOptions).then(handleResponse);
 }
 
 function getById(id) {
@@ -26,7 +26,7 @@ function getById(id) {
         headers: authHeader()
     };
 
-    return fetch('http://localhost:8081/app/items/' + id, requestOptions).then(handleResponse);
+    return fetch(urlAppender('/items/' + id), requestOptions).then(handleResponse);
 }
 
 function register(item) {
@@ -37,7 +37,7 @@ function register(item) {
         body: JSON.stringify(item)
     };
 
-    return fetch('http://localhost:8081/app/items', requestOptions).then(handleResponse);
+    return fetch(urlAppender('/items'), requestOptions).then(handleResponse);
 }
 
 function update(item) {
@@ -48,7 +48,7 @@ function update(item) {
         body: JSON.stringify({_id:item._id,name:item.name,category:item.categories,unity_measure:item.unities,qtt:item.qtt})
     };
 
-    return fetch('http://localhost:8081/app/items/' + item._id, requestOptions).then(handleResponse);
+    return fetch(urlAppender('/items/' + item._id), requestOptions).then(handleResponse);
 }
 
 // prefixed function name with underscore because delete is a reserved word in javascript
@@ -58,7 +58,7 @@ function _delete(id) {
         headers: authHeader()
     };
 
-    return fetch('http://localhost:8081/app/items/' + id, requestOptions).then(handleResponse);
+    return fetch(urlAppender('/items/' + id), requestOptions).then(handleResponse);
 }
 
 function handleResponse(response) {

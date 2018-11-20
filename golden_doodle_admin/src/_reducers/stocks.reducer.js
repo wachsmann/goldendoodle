@@ -53,6 +53,20 @@ export function stocks(state = {}, action) {
       return { 
         error: action.error
       };
+
+    case stocksConstants.GETLIST_REQUEST:
+      return {
+        loading: true
+      };
+    
+    case stocksConstants.GETLIST_SUCCESS:
+      return {
+        list: action.stocks
+      };
+    case stocksConstants.GETLIST_FAILURE:
+      return { 
+        error: action.error
+      };      
     case stocksConstants.DELETE_REQUEST:
       // add 'deleting:true' property to user being deleted
       return {

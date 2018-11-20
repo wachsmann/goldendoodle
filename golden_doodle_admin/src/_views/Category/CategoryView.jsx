@@ -77,7 +77,7 @@ class CategoryView extends React.Component {
         var {categories} = this.props;
         var { filters,order,orderBy,selected,page,rowsPerPage,totalRows,data} = this.state;
         var table = categories.table ? categories.table : {filters,order,orderBy,selected,page,rowsPerPage,totalRows,data};
-
+        
         return (
             <div>
                 <TablePaginationActions 
@@ -97,7 +97,7 @@ class CategoryView extends React.Component {
                         totalRows:table.totalRows
                   }
                 }
-                count={table.data.length}
+               
                 />
                 <Button 
                     variant="fab" color="primary" aria-label="Adicionar"

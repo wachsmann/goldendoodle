@@ -8,8 +8,8 @@ class Register extends React.Component {
   
     super(props);
     
-    this.props.dispatch(categoriesActions.getAll());
-    this.props.dispatch(unitiesActions.getAll());
+    this.props.dispatch(categoriesActions.getList());
+    this.props.dispatch(unitiesActions.getList());
 
   }
   onSend(obj){
@@ -21,14 +21,14 @@ class Register extends React.Component {
   render() {
 
     const {categories,unities} = this.props;
-
+    
     return (
       <div>
         <RegisterView 
           onSend={this.onSend} 
           props={this.props} 
-          categories={categories.data} 
-          unities={unities.data}
+          categories={categories.list} 
+          unities={unities.list}
           title={"Novo Item"} 
         />
       </div>

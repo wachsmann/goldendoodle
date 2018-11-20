@@ -76,7 +76,7 @@ class UMeasureView extends React.Component {
         var { filters,order,orderBy,selected,page,rowsPerPage,totalRows,data} = this.state;
         var table = unities.table ? unities.table : {filters,order,orderBy,selected,page,rowsPerPage,totalRows,data};
 
-
+        
 
         return (
             <div>

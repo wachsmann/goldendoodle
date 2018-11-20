@@ -1,9 +1,10 @@
-import { authHeader } from '../_helpers';
+import { authHeader,urlAppender } from '../_helpers';
 
 export const categoriesService = {
   
     register,
     getAll,
+    getList,
     getById,
     update,
     delete: _delete
@@ -17,7 +18,17 @@ function getAll(req) {
         body: JSON.stringify(req)
     };
 
-    return fetch('http://localhost:8081/app/categories/all', requestOptions).then(handleResponse);
+    return fetch(urlAppender('/categories/all'), requestOptions).then(handleResponse);
+}
+
+function getList() {
+    const requestOptions = {
+        method: 'GET',
+        headers: authHeader(),
+        //body: JSON.stringify(req)
+    };
+
+    return fetch(urlAppender('/categories/'), requestOptions).then(handleResponse);
 }
 
 function getById(id) {
@@ -26,7 +37,7 @@ function getById(id) {
         headers: authHeader()
     };
 
-    return fetch('http://localhost:8081/app/categories/' + id, requestOptions).then(handleResponse);
+    return fetch(urlAppender('/categories/'+id), requestOptions).then(handleResponse);
 }
 
 function register(category) {
@@ -36,7 +47,7 @@ function register(category) {
         body: JSON.stringify(category)
     };
 
-    return fetch('http://localhost:8081/app/categories', requestOptions).then(handleResponse);
+    return fetch(urlAppender('/categories'), requestOptions).then(handleResponse);
 }
 
 function update(category) {
@@ -46,7 +57,7 @@ function update(category) {
         body: JSON.stringify(category)
     };
 
-    return fetch('http://localhost:8081/app/categories/' + category._id, requestOptions).then(handleResponse);
+    return fetch(urlAppender('/categories/' + category._id), requestOptions).then(handleResponse);
 }
 
 // prefixed function name with underscore because delete is a reserved word in javascript
@@ -56,7 +67,7 @@ function _delete(id) {
         headers: authHeader()
     };
 
-    return fetch('http://localhost:8081/app/categories/' + id, requestOptions).then(handleResponse);
+    return fetch(urlAppender('/categories/' + id), requestOptions).then(handleResponse);
 }
 
 function handleResponse(response) {
