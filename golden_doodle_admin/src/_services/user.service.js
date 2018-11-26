@@ -21,6 +21,7 @@ function login(name, password) {
     };
 
     return fetch('http://localhost:8081/auth/login', requestOptions)
+
         .then(response => {
             if (!response.ok) { 
                 return Promise.reject(response.statusText);
