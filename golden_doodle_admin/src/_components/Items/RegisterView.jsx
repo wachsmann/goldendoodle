@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import {MenuItem,TextField,Typography,Grid,Button} from '@material-ui/core';
+import {MenuItem,TextField,Typography,Grid,Button,IconButton} from '@material-ui/core';
 import Icon from '@material-ui/core/Icon';
 
 class RegisterView extends React.Component {
@@ -43,6 +43,10 @@ class RegisterView extends React.Component {
     this.props.onSend({_id,name,categories,unities,qtt});
 
   };
+  onClose = () => {
+    this.props.onClose();
+
+  };
 
   render() {
     const { classes,categories,unities } = this.props;
@@ -51,6 +55,11 @@ class RegisterView extends React.Component {
     return (
       <Grid container spacing={24} justify={"center"}>
         <form onSubmit={this.onSend} className={classes.container} noValidate autoComplete="off">
+          <Grid container spacing={24} justify={"flex-end"}>
+            <IconButton onClick={this.onClose} variant="contained" color="primary" size="medium" className={classes.button}>
+              <Icon className={classes.rightIcon}>close</Icon>
+            </IconButton>
+          </Grid>
            <Grid item xs={12}>
             <Typography variant="headline" component="h3">
               {this.state.title}
@@ -133,6 +142,7 @@ class RegisterView extends React.Component {
             />
             </Grid>
             <Grid container spacing={24} justify={"flex-end"}>
+
             <Button onClick={this.onSend} variant="contained" color="primary" size="medium" className={classes.button}>
             
             <Icon className={classes.rightIcon}>send</Icon>

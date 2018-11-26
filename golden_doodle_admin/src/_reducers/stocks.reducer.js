@@ -26,14 +26,14 @@ export function stocks(state = {}, action) {
     case stocksConstants.GETBYID_REQUEST:
       return {
         loading: true,
-        data:state.data
+        table:state.table
       };
     
     case stocksConstants.GETBYID_SUCCESS:
 
       return {
         stock: action.stock,
-        data:state.data
+        table:state.table
       };
     case stocksConstants.GETBYID_FAILURE:
       return { 

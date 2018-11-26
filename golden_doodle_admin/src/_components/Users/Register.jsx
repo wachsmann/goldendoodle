@@ -16,7 +16,9 @@ class Register extends React.Component {
     this.props.dispatch(userActions.register(obj));
     this.props.onClose();
   }
-
+  onClose(){
+    this.props.onClose();
+  }
   render() {
 
     const {stocks} = this.props;
@@ -25,6 +27,7 @@ class Register extends React.Component {
       <div>
         <RegisterView 
           onSend={this.onSend} 
+          onClose={this.onClose} 
           props={this.props} 
           stocks={stocks.data}
           title={"Novo Usuário"}

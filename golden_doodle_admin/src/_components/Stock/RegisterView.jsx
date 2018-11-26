@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import {TextField,Typography,Grid,Button} from '@material-ui/core';
+import {TextField,Typography,Grid,Button,IconButton} from '@material-ui/core';
 import Icon from '@material-ui/core/Icon';
 
 class RegisterView extends React.Component {
@@ -38,7 +38,10 @@ class RegisterView extends React.Component {
     this.props.onSend({_id,name,stocks});
 
   };
+  onClose = () => {
+    this.props.onClose();
 
+  };
   render() {
     const { classes,stocks } = this.props;
     
@@ -47,6 +50,11 @@ class RegisterView extends React.Component {
       <Grid container spacing={24} justify={"center"}>
       
         <form className={classes.container} noValidate autoComplete="off"  onSubmit={this.onSend}>
+            <Grid container spacing={24} justify={"flex-end"}>
+            <IconButton onClick={this.onClose} variant="contained" color="primary" size="medium" className={classes.button}>
+              <Icon className={classes.rightIcon}>close</Icon>
+            </IconButton>
+          </Grid>
            <Grid item xs={12}>
             <Typography variant="headline" component="h3">
               {this.state.title}

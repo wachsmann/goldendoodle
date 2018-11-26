@@ -15,7 +15,10 @@ class Edit extends React.Component {
     this.props.dispatch(categoriesActions.update(obj));
     this.props.onClose();
   }
-
+  onClose(){
+    //console.log(obj);
+    this.props.onClose();
+  }
   render() {
 
     const {categories,stocks} = this.props;
@@ -23,7 +26,8 @@ class Edit extends React.Component {
       return (
         <div>
          <RegisterView 
-            onSend={this.onSend} 
+            onSend={this.onSend}
+            onClose={this.onClose} 
             props={this.props} 
             stocks={stocks.data} 
             title={"Edição de Categoria"}

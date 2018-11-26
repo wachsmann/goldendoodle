@@ -17,7 +17,11 @@ class Register extends React.Component {
     this.props.dispatch(itemsActions.register(obj));
     this.props.onClose();
   }
-
+  onClose(){
+    //console.log(obj);
+    
+    this.props.onClose();
+  }
   render() {
 
     const {categories,unities} = this.props;
@@ -26,6 +30,7 @@ class Register extends React.Component {
       <div>
         <RegisterView 
           onSend={this.onSend} 
+          onClose={this.onClose} 
           props={this.props} 
           categories={categories.list} 
           unities={unities.list}

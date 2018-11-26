@@ -27,14 +27,14 @@ export function unities(state = {}, action) {
     case unitiesConstants.GETBYID_REQUEST:
       return {
         loading: true,
-        data:state.data
+        table:state.table
       };
     
     case unitiesConstants.GETBYID_SUCCESS:
 
       return {
         unity: action.unity,
-        data:state.data
+        table:state.table
       };
     case unitiesConstants.GETBYID_FAILURE:
       return { 

@@ -18,7 +18,10 @@ class Edit extends React.Component {
     this.props.dispatch(itemsActions.update(obj));
     this.props.onClose();
   }
-
+  onClose(){
+    
+    this.props.onClose();
+  }
   render() {
 
     const {categories,unities,items} = this.props;
@@ -27,6 +30,7 @@ class Edit extends React.Component {
         <div>
          <RegisterView 
             onSend={this.onSend} 
+            onClose={this.onClose}
             props={this.props} 
             categories={categories.list} 
             unities={unities.list}

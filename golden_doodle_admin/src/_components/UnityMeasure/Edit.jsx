@@ -15,7 +15,9 @@ class Edit extends React.Component {
     this.props.dispatch(unitiesActions.update(obj));
     this.props.onClose();
   }
-
+  onClose(){
+    this.props.onClose();
+  }
   render() {
 
     const {unities} = this.props;
@@ -24,6 +26,7 @@ class Edit extends React.Component {
         <div>
          <RegisterView 
             onSend={this.onSend} 
+            onClose={this.onClose} 
             props={this.props} 
             category={unities.unity} 
             title={"Editar Unidade de Medida"}

@@ -10,7 +10,9 @@ class Register extends React.Component {
     this.props.dispatch(stocksActions.register(obj));
     this.props.onClose();
   }
-
+  onClose(){
+    this.props.onClose();
+  }
   render() {
 
     
@@ -19,6 +21,7 @@ class Register extends React.Component {
       <div>
         <RegisterView 
           onSend={this.onSend} 
+          onClose={this.onClose} 
           props={this.props}
           title={"Novo estoque"} 
         />

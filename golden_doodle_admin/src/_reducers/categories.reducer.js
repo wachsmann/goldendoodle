@@ -31,14 +31,14 @@ export function categories(state = {}, action) {
     case categoriesConstants.GETBYID_REQUEST:
       return {
         loading: true,
-        data:state.data
+        table:state.table
       };
     
     case categoriesConstants.GETBYID_SUCCESS:
 
       return {
         category: action.category,
-        data:state.data
+        table:state.table
       };
     case categoriesConstants.GETBYID_FAILURE:
       return { 

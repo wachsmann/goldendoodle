@@ -39,15 +39,17 @@ export function items(state = {}, action) {
       };
 
     case itemsConstants.GETBYID_REQUEST:
+    
       return {
         loading: true,
-        data:state.data
+        data:state.data,
+        table:state.table
       };
     
     case itemsConstants.GETBYID_SUCCESS:
       return {
         item: action.item,
-        data:state.data
+        table:state.table
       };
     case itemsConstants.GETBYID_FAILURE:
       return { 
