@@ -20,7 +20,7 @@ function login(name, password) {
         body: JSON.stringify({ name, password })
     };
 
-    return fetch(urlAppender('/auth/login'), requestOptions)
+    return fetch('http://localhost:999/auth/login', requestOptions)
         .then(response => {
             if (!response.ok) { 
                 return Promise.reject(response.statusText);
