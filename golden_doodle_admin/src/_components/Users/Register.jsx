@@ -29,7 +29,7 @@ class Register extends React.Component {
           onSend={this.onSend} 
           onClose={this.onClose} 
           props={this.props} 
-          stocks={stocks.data}
+          stocks={stocks.list}
           title={"Novo Usuário"}
         />
       </div>
